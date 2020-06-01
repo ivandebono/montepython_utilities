@@ -30,7 +30,7 @@ print("Old likelihood:",src)
 print("New likelihood:",dest)
 
 
-#Copy the existing likelihood folder (and its files) with new name. 
+# Copy the existing likelihood folder and its files with new name. 
 try:
     shutil.copytree(os.path.join(path,src), os.path.join(path,dest))
 except OSError as e:
@@ -51,7 +51,7 @@ except:
     print("ERROR! Likelihood already exists")
     sys.exit(1)
 
-#Modify the copied .data file
+# Modify the copied .data file
 # This part may be modified by user according to requirements
 for line in fileinput.input(datafile, inplace=1):
     if src+"." in line:
@@ -60,7 +60,7 @@ for line in fileinput.input(datafile, inplace=1):
         line = line.replace(src+'_fiducial.dat', dest+'_fiducial.dat') 
     sys.stdout.write(line)
 
-#Modify the copied __init__.py file
+# Modify the copied __init__.py file
 for line in fileinput.input(initfile, inplace=1):
     if line.strip().startswith('class'):
         line = line.replace(src, dest)

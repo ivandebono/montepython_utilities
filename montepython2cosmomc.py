@@ -1,3 +1,23 @@
+#!/usr/bin/env python
+
+"""
+Author: Ivan Debono 2018
+
+A collection of modules to convert MontePython output into CosmoMC-compatible output.
+
+Example usage:
+
+FOLDER is the relevant MontePython output folder, containing the chains and log.param
+
+To create a .ranges files for use with GetDist:
+mk_cosmomc_ranges(FOLDER)
+
+To create a NEWNAME.paramnames file in CosmoMC format:
+mk_cosmomc_paramnames(FOLDER,NEWNAME)
+
+"""
+
+
 import glob
 import re
 import pandas as pd
